@@ -78,3 +78,6 @@ ask("What is the capital of France?")
 
 # 2. Tool-requiring question — triggers get_weather
 ask("What's the weather in Pune?")
+
+# 3. Tool-requiring question — triggers get_timezone
+ask("What's the timezone for Pune?")
