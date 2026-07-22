@@ -3,12 +3,17 @@ import json
 from dotenv import load_dotenv
 from openai import OpenAI
 
-load_dotenv()
+# Load .env from repo root, regardless of current working directory
+env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".env")
+load_dotenv(env_path, override=True)
+print("Key loaded:", os.getenv("OPENAI_API_KEY")[:10] + "..." if os.getenv("OPENAI_API_KEY") else "NOT FOUND")
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 
 def get_weather(location: str) -> str:
     # placeholder — replace with a real API call later
     return f"It's sunny and 28°C in {location}."
+
 
 tools = [
     {
